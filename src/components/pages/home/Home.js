@@ -117,7 +117,7 @@ export default function Home() {
               <ProblemSection>
                 <ProblemTitle variant="h6">My Profile</ProblemTitle>
                 <ProblemDescription variant="body2">
-                  Scope, impact, and operating principles.
+                Want to know more about my professional journey.
                 </ProblemDescription>
                 <ActionButton
                   component={Link}
@@ -125,7 +125,7 @@ export default function Home() {
                   size="small"
                   aria-label="Open my profile"
                 >
-                  View Profile
+                  Click here
                 </ActionButton>
               </ProblemSection>
             </Grid>
@@ -134,7 +134,7 @@ export default function Home() {
               <ProblemSection>
                 <ProblemTitle variant="h6">Articles</ProblemTitle>
                 <ProblemDescription variant="body2">
-                  Bookmark-worthy guides you can use in design reviews.
+                  House of knowledge gained through last 19 years experience.
                 </ProblemDescription>
                 <ActionButton
                   component={Link}
@@ -148,19 +148,13 @@ export default function Home() {
             </Grid>
 
             <Grid item xs={12} md={4}>
-              <Tooltip title="Coming soon" arrow disableInteractive>
-                <span style={{ display: "block" }}>
-                  <ProblemSection disabled>
+                  <ProblemSection>
                     <ProblemTitle variant="h6">Newsletter</ProblemTitle>
                     <ProblemDescription variant="body2">
-                      One email a month. No spam.
+                      Want to connect with me. Happy to chat through anytime.
                     </ProblemDescription>
-                    <ActionButton size="small" disabled>
-                      Subscribe
-                    </ActionButton>
+                    <a href="mailto:skaggarwal1984@gmail.com">Email Me</a>
                   </ProblemSection>
-                </span>
-              </Tooltip>
             </Grid>
           </Grid>
         </GridWrap>
