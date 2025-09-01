@@ -103,7 +103,6 @@ export default function KeyTermsModernEngineering() {
               ["people","People"],
               ["customer","Customer Impact"],
               ["ritual","Weekly Ritual"],
-              ["assess","Self-Assessment"],
             ].map(([id,label])=> (
               <a key={id} href={`#${id}`} className={activeId===id?"active":""}>{label}</a>
             ))}
@@ -124,8 +123,7 @@ export default function KeyTermsModernEngineering() {
             <div className="kt-note" style={{marginTop:8}}>
               <strong>OKR (Delivery) Examples:</strong> Ship value faster without surprises.
               <ul className="kt-list">
-                <li>KR1 — Reduce Lead Time median to ≤ <span className="kt-code">36h</span> (from 62h)</li>
-                <li>KR2 — Achieve Release Frequency ≥ <span className="kt-code">1 deploy/week</span> in 80% services</li>
+                <li>KR1 — Reduce Lead Time median to ≤ <span className="kt-code">48h</span> (from 120h)</li>
               </ul>
             </div>
           </section>
@@ -136,14 +134,11 @@ export default function KeyTermsModernEngineering() {
             <ul className="kt-list">
               <li><span className="kt-badge">Change Failure Rate (CFR)</span> — Share of deployments that cause incidents or rollbacks.</li>
               <li><span className="kt-badge">Escape Rate</span> — Defects discovered in production; reflects prevention depth.</li>
-              <li><span className="kt-badge">Defect Density</span> — Defects normalized by output size (e.g., per KLOC or per feature).</li>
             </ul>
             <div className="kt-note" style={{ marginTop: 8 }}>
               <strong>OKR (Quality) Examples:</strong> Raise correctness; prevent regressions.
               <ul className="kt-list">
                 <li>KR1 — CFR ≤ <span className="kt-code">12%</span> (from 18%)</li>
-                <li>KR2 — Escape Rate ↓ <span className="kt-code">25%</span> QoQ</li>
-                <li>KR3 — Defect Density ≤ <span className="kt-code">0.3/kloc</span> on new features</li>
               </ul>
             </div>
           </section>
@@ -164,7 +159,6 @@ export default function KeyTermsModernEngineering() {
               <ul className="kt-list">
                 <li>KR1 — p95 latency &lt; <span className="kt-code">300ms</span> on top 5 APIs</li>
                 <li>KR2 — MTTR p50 &lt; <span className="kt-code">45m</span>; MTTD &lt; <span className="kt-code">5m</span></li>
-                <li>KR3 — Error budget remaining ≥ <span className="kt-code">40%</span> each month</li>
               </ul>
             </div>
           </section>
@@ -175,17 +169,12 @@ export default function KeyTermsModernEngineering() {
             <ul className="kt-list">
               <li><span className="kt-badge">Cost per Request / Feature</span> — Unit cost to deliver value to customers.</li>
               <li><span className="kt-badge">Build & Test Cycle Time</span> — Speed of CI feedback loops to developers.</li>
-              <li><span className="kt-badge">Flaky Test Rate</span> — Unreliable tests that slow feedback and trust.</li>
-              <li><span className="kt-badge">Auto-Remediation %</span> — Incidents resolved automatically without paging.</li>
-              <li><span className="kt-badge">CI/CD Queue Time</span> — Waiting time before a job starts running.</li>
               <li><span className="kt-badge">Infra Utilization</span> — Right-sizing compute and memory without thrash.</li>
             </ul>
             <div className="kt-note" style={{marginTop:8}}>
               <strong>OKR (Efficiency) Examples:</strong> Improve developer throughput & unit economics.
               <ul className="kt-list">
                 <li>KR1 — CI Build+Test p50 &lt; <span className="kt-code">10m</span> (from 19m)</li>
-                <li>KR2 — Flaky test rate &lt; <span className="kt-code">1%</span>; quarantine SLA ≤ <span className="kt-code">48h</span></li>
-                <li>KR3 — Cost per 1k requests ↓ <span className="kt-code">20%</span> QoQ</li>
               </ul>
             </div>
           </section>
@@ -204,9 +193,7 @@ export default function KeyTermsModernEngineering() {
             <div className="kt-note" style={{marginTop:8}}>
               <strong>OKR (People) Examples:</strong> Build an engaged, scalable org.
               <ul className="kt-list">
-                <li>KR1 — eNPS ≥ <span className="kt-code">+20</span>; ≥ <span className="kt-code">90%</span> favorable on “I recommend”</li>
-                <li>KR2 — Onboarding: first prod PR ≤ <span className="kt-code">30d</span> for 90% new hires</li>
-                <li>KR3 — Promotion pipeline: ≥ <span className="kt-code">70%</span> of eligible with plans</li>
+                <li>KR1 — eNPS ≥ <span className="kt-code">90%</span> favorable on “I recommend”</li>
               </ul>
             </div>
           </section>
@@ -225,9 +212,7 @@ export default function KeyTermsModernEngineering() {
             <div className="kt-note" style={{marginTop:8}}>
               <strong>OKR (Customer Impact) Examples:</strong> Translate engineering into business outcomes.
               <ul className="kt-list">
-                <li>KR1 — CSAT ≥ <span className="kt-code">4.6/5</span>; NPS +<span className="kt-code">10</span> pts</li>
                 <li>KR2 — Feature X adoption ≥ <span className="kt-code">35%</span> of eligible in 30 days</li>
-                <li>KR3 — Ticket MTTR ≤ <span className="kt-code">24h</span>; P0 tickets ↓ <span className="kt-code">30%</span></li>
               </ul>
             </div>
           </section>
@@ -235,18 +220,9 @@ export default function KeyTermsModernEngineering() {
           {/* WEEKLY RITUAL */}
           <section id="ritual" className="kt-card" style={{ marginTop: 16 }}>
             <h2 className="kt-h2">📅 Weekly Review Ritual (30 minutes)</h2>
-            <ol className="kt-list">
-              <li><strong>10m — KPIs:</strong> Scan all buckets; call out ↑/↓ and top 3 blockers.</li>
-              <li><strong>10m — Actions:</strong> If <span className="kt-code">CFR &gt; 15%</span> or <span className="kt-code">Error budget &lt; 30%</span> → freeze & focus.</li>
-              <li><strong>5m — Decisions:</strong> Pull levers (cache, autoscale, limits, rollback, feature flag).</li>
-              <li><strong>5m — Recognition:</strong> Celebrate improvements; mentorship & promotions.</li>
-            </ol>
           </section>
 
-          <hr className="kt-hr" />
-          <SelfAssessment storeKey={ARTICLE_KEY} />
-
-          <hr className="kt-hr" />
+           <hr className="kt-hr" />
           <footer className="kt-foot">
             <Link to="/articles" style={{ textDecoration:"none", color:"#0b66c3", fontWeight:600 }}>← Back to Articles</Link>
             <a href="#delivery" className="kt-btn" style={{ textDecoration:"none" }}>Back to Top ↑</a>

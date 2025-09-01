@@ -8,11 +8,12 @@ import React, { useState } from "react";
  */
 
 const METRICS = [
-  { label: "", sub: "Digital Sales Influence" },
-  { label: "", sub: "Incremental Revenue" },
-  { label: "", sub: "Efficiency Gains" },
-  { label: "", sub: "Cost Savings" },
-  { label: "", sub: "Best-in-class engineering culture" },
+  { label: "", sub: "Transform" },
+  { label: "", sub: "People" },
+  { label: "", sub: "Revenue" },
+  { label: "", sub: "Efficiency" },
+  { label: "", sub: "Resources" },
+  { label: "", sub: "KPIs" },
 ];
 
 const COMPETENCIES = [
@@ -72,19 +73,25 @@ const EXPERIENCES = [
   {
     title: "Specialist Master & Engineering Roles",
     period: "2006 – 2020",
-    points: [
-      "Led enterprise transformation programs with cloud-native modernization and agile delivery.",
-      "Launched global content discovery & search for a Fortune 100 tech major across multiple markets.",
-      "Achieved Technology Architect distinction in 6 years; recognized as people-first leader and strategist.",
-    ],
+points: [
+  "Led enterprise-scale transformation programs, modernizing legacy platforms with cloud-native architectures and agile delivery models.",
+  "Designed and launched a global content discovery & search platform for a Fortune 100 tech major, transforming engagement across multiple markets.",
+  "Recognized as a people-first leader and trusted strategist, influencing architecture standards, delivery practices, and leadership culture.",
+  "Built and scaled engineering orgs across open source (Java) and content platforms (Adobe, Drupal), impacting millions of customers.",
+  "Earned Technology Architect (TA) distinction in just 6 years—among the youngest recipients—establishing credibility as an enterprise architecture authority.",
+  "Recognized as a culture builder and leadership multiplier, scaling mentorship, recognition, and succession-planning programs globally.",
+  "Known for strong engineering mindset, exceptional leadership style, and passion for technology.",
+  "Contributed as an assistant trainer, mentoring new hires in Java/JSP/Servlets and fostering knowledge-sharing culture.",
+],
+
   },
 ];
 
 const RECOGNITION = [
-  "Consistently outperform expectations across roles; recognized for transformation and delivery excellence.",
+  "Consistently outperform expectations across roles; recognized for transformation, growth leadership and operational excellence.",
   "Trusted advisor to VPs & SVPs on platform modernization, operations, and cost efficiency, and culture building",
   "Built culture of trust and innovation; 99% engagement and top engineering KPIs.",
-  "LinkedIn Brand Ambassador within the organization.",
+  "Brand Ambassador within the organization.",
 ];
 
 const EDUCATION = [
@@ -104,12 +111,25 @@ function Pill({ children }) {
   return <span className="mp-pill">{children}</span>;
 }
 
-function Accordion({ items }) {
-  const [openIndex, setOpenIndex] = useState(0);
+
+function Accordion({ items, defaultOpenAll = false }) {
+  // Track multiple open panels (using Set)
+  const [openSet, setOpenSet] = useState(
+    defaultOpenAll ? new Set(items.map((_, i) => i)) : new Set()
+  );
+
+  const toggle = (idx) => {
+    setOpenSet((prev) => {
+      const next = new Set(prev);
+      next.has(idx) ? next.delete(idx) : next.add(idx);
+      return next;
+    });
+  };
+
   return (
-    <div className="mp-accordion" role="tablist" aria-label="Career Experience">
+    <div className="mp-accordion" role="tablist" aria-label="Accordion">
       {items.map((item, idx) => {
-        const open = openIndex === idx;
+        const open = openSet.has(idx);
         return (
           <div key={idx} className="mp-accordion-item">
             <button
@@ -118,14 +138,19 @@ function Accordion({ items }) {
               aria-expanded={open}
               aria-controls={`sect-${idx}`}
               id={`tab-${idx}`}
-              onClick={() => setOpenIndex(open ? -1 : idx)}
+              onClick={() => toggle(idx)}
             >
               <div className="mp-accordion-head">
                 <span className="mp-accordion-title">{item.title}</span>
-                <span className="mp-accordion-period">{item.period}</span>
+                {item.period && (
+                  <span className="mp-accordion-period">{item.period}</span>
+                )}
               </div>
-              <span className={`mp-caret ${open ? "open" : ""}`} aria-hidden>▾</span>
+              <span className={`mp-caret ${open ? "open" : ""}`} aria-hidden>
+                ▾
+              </span>
             </button>
+
             <div
               id={`sect-${idx}`}
               role="tabpanel"
@@ -144,6 +169,7 @@ function Accordion({ items }) {
     </div>
   );
 }
+
 
 export default function MyProfile() {
   return (
@@ -260,57 +286,122 @@ export default function MyProfile() {
           {/* Body */}
           <div className="mp-body">
             {/* Top grid: Summary + Metrics */}
-            <div className="mp-grid">
+           
               <section>
                 <div className="mp-section-title">Executive Summary</div>
                 <div className="mp-section-sub">Impact at enterprise scale</div>
                 <div className="mp-summary" style={{ marginTop: 10 }}>
                   <p>
-                    Transformation and servant leader with 19 years in technology and 10+ years of engineering leadership. Built and scaled high-performing global teams across personalization, recommendations, search, content, and customer engagement. At Lowe’s, I lead a 60+ member org across Personalization, Recommendation, and Home Platform, directly influencing X% of digital sales. Through digital transformation, platform modernization, and operational excellence, my teams delivered Y incremental revenue and multi-million-dollar savings while elevating customer experiences.
-                  </p>
+                    Transformation and Growth leader with 19 years in technology and 10+ years of engineering leadership. Built and scaled high-performing global teams across personalization, recommendations, search, content, and customer engagement. At Lowe’s, I lead a 60+ member org across Personalization, Recommendation, and Home Platform, directly influencing X% of digital sales. My core focus has been on digital transformations, technology roadmap alignment with business goals, people's growth and operational excellence. This has resulted in YoY incremental revenue and multi-million-dollar platform savings while elevating customer experiences.
+                    </p>
                 </div>
               </section>
 
-              <aside>
-                <div className="mp-section-title">Impact Snapshot</div>
-                <div className="mp-section-sub">Results at a glance</div>
-                <div className="mp-metrics" style={{ marginTop: 10 }}>
-                  {METRICS.map((m, i) => (
-                    <Metric key={i} {...m} />
-                  ))}
-                </div>
-              </aside>
-            </div>
 
-            {/* Competencies + Tech */}
-            <div className="mp-row" style={{ marginTop: 18 }}>
-              <section className="mp-card-sec">
-                <div className="mp-section-title">Core Competencies</div>
-                <div className="mp-section-sub">Strengths leaders care about</div>
-                <div className="mp-pills" style={{ marginTop: 10 }}>
-                  {COMPETENCIES.map((c) => (
-                    <Pill key={c}>{c}</Pill>
-                  ))}
-                </div>
-              </section>
 
-              <aside className="mp-card-sec">
-                <div className="mp-section-title">Tech Stack</div>
-                <div className="mp-section-sub">Strong technical foundation</div>
-                <div className="mp-pills" style={{ marginTop: 10 }}>
-                  {TECH.map((t) => (
-                    <span className="mp-badge" key={t}>{t}</span>
-                  ))}
-                </div>
-              </aside>
-            </div>
+              
+            
+{/* Competencies + Tech */}
+<div className="mp-row" style={{ marginTop: 18 }}>
+
+  {/* Core Competencies (experience-forward) */}
+  <section className="mp-card-sec" style={{ marginTop: 18 }}>
+    <div className="mp-section-title">Core Competencies</div>
+    <div className="mp-section-sub">Strengths leaders care about</div>
+
+    <div
+      className="mp-pills-grid"
+      style={{
+        marginTop: 10,
+        display: "grid",
+        gap: "10px",
+        gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+      }}
+    >
+      {[
+        "🌍 Global Leadership – Built and led multi-continent orgs; 60+ engineers (SEMs + architects) delivering enterprise AI/ML platforms at scale.",
+        "📊 Enterprise Strategy – Translate OKRs/KPIs into roadmaps; align funding and portfolio bets to digital transformation priorities.",
+        "🤝 Transformational Leadership – Partner with senior leadership on multi-year plans; drive cross-functional change and measurable business outcomes.",
+        "📈 Operational Excellence – Establish governance, cadences, and delivery rigor; improve predictability, quality, and time-to-value.",
+        "💡 Growth Leadership – Create high-trust, high-performance culture; 99% engagement; mentorship, recognition, and succession programs.",
+        "⚙️ Engineering Excellence – KPI-driven, cloud-native platforms across personalization/recommendation/content/search powering millions of touchpoints.",
+        "🚨 Crisis Leadership – Resolve high-severity incidents and organizational conflicts quickly; mitigate multi-million-dollar risks.",
+        "🧭 Technology Depth & Mentorship – Hands-on with architecture; coach senior engineers/architects to align strategy with execution.",
+        "🌟 Innovation & Customer-Centricity – Incubate GenAI/Agent use-cases; convert prototypes into scaled, customer-first capabilities.",
+      ].map((c) => (
+        <div
+          key={c}
+          className="mp-pill"
+          style={{
+            padding: "12px 14px",
+            borderRadius: "12px",
+            background: "#f5f5f5",
+            lineHeight: 1.35,
+          }}
+        >
+          {c}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Tech Stack (Senior Director view) */}
+  <aside className="mp-card-sec">
+    <div className="mp-section-title">Tech Stack</div>
+    <div className="mp-section-sub">Strong technical foundation</div>
+
+    <div className="mp-tech-groups" style={{ marginTop: 10, display: "grid", gap: 12 }}>
+      {[
+        {
+          label: "Architecture & Platforms",
+          items: ["Cloud-Native", "Microservices", "Event-Driven", "Data Pipelines", "GCP"],
+        },
+        {
+          label: "Data & Streaming",
+          items: ["BigQuery", "Kafka", "Apache Beam"],
+        },
+        {
+          label: "Data Stores",
+          items: ["Cassandra", "MongoDB", "Redis"],
+        },
+        {
+          label: "Search",
+          items: ["Elasticsearch"],
+        },
+        {
+          label: "Programming & Frameworks",
+          items: ["Java", "Spring Boot", "Python", "React"],
+        },
+        {
+          label: "AI/ML & Agents",
+          items: ["AI/ML", "Agents"],
+        },
+      ].map((group) => (
+        <div key={group.label} className="mp-tech-group">
+          <div className="mp-group-title" style={{ fontWeight: 600, marginBottom: 6 }}>
+            {group.label}
+          </div>
+          <div className="mp-pills" style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {group.items.map((t) => (
+              <span className="mp-badge" key={t}>{t}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </aside>
+
+</div>
+
+
 
             {/* Experience */}
-            <section className="mp-card-sec" style={{ marginTop: 18 }}>
-              <div className="mp-section-title">Career Experience</div>
-              <div className="mp-section-sub">Scope, scale, and outcomes</div>
-              <Accordion items={EXPERIENCES} />
-            </section>
+<section className="mp-card-sec" style={{ marginTop: 18 }}>
+  <div className="mp-section-title">Career Experience</div>
+  <div className="mp-section-sub">Scope, scale, and outcomes</div>
+  {/* ensure Accordion accepts defaultOpenAll OR defaultOpenIndices */}
+  <Accordion items={EXPERIENCES} defaultOpenAll />
+</section>
 
             {/* Recognition + Education */}
             <div className="mp-row" style={{ marginTop: 18 }}>

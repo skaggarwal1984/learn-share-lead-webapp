@@ -85,23 +85,6 @@ export default function ArticlesIndex() {
           </Link>
         </article>
 
-        {/* Transformers */}
-        <article style={card}>
-          <h2 style={h2}>
-            <Link to="/articles/transformers-primer" style={a}>
-              🤖 Transformer Architecture: The LLM Primer
-            </Link>
-          </h2>
-          <p style={muted}>
-            A first-principles tour of self-attention, Q/K/V, model stacks, decoding, and scaling—with an interactive causal mask.
-          </p>
-          <div style={meta}>
-            ~9 min read · Updated {new Date().toLocaleDateString()}
-          </div>
-          <Link to="/articles/transformers-primer" style={btn}>
-            Read →
-          </Link>
-        </article>
 
      
       </div>

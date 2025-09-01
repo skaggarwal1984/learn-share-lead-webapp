@@ -122,7 +122,6 @@ const data = {
     { term: "Technology Radar", desc: "Assessment of emerging technologies to adopt, trial, or hold." },
     { term: "SWOT Analysis", desc: "Framework for strengths, weaknesses, opportunities, and threats." },
     { term: "Transformation", desc: "Enterprise-wide initiative to modernize and scale." },
-    { term: "Conway’s Law", desc: "Systems mirror the communication structures of the organizations that build them." },
     { term: "Mission-Critical", desc: "Capabilities or systems that are must-have for success." },
     { term: "AOP (Annual Operating Plan)", desc: "Next-year plan covering budget, headcount, and initiatives." },
     { term: "Strategic Execution", desc: "Translating strategy into coordinated, measurable delivery." },
