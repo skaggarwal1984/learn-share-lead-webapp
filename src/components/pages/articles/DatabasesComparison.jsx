@@ -260,7 +260,7 @@ function QuickPick({ title, items = [] }) {
 const styles = `
   .layout { display:grid; grid-template-columns: 1fr; gap:20px; }
   @media(min-width:980px){.layout{grid-template-columns:240px 1fr;}}
-  .toc { position:sticky; top:72px; align-self:start; }
+  .toc { top:72px; align-self:start; }
   .card { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; }
   .kicker{ text-transform:uppercase; letter-spacing:.08em; font-weight:700; color:#6b7280; font-size:12px; margin:0 }
   .title{font-size:34px;font-weight:800;line-height:1.15;margin:6px 0 8px}

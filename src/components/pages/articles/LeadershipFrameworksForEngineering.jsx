@@ -100,7 +100,7 @@ export default function LeadershipFrameworksForEngineering() {
 
       <div className="kt-wrap">
         {/* Sticky ToC */}
-        <aside className="kt-sticky">
+        <aside>
           <nav className="kt-card kt-toc" aria-label="On this page">
             <strong style={{ display:"block", marginBottom:6 }}>On this page</strong>
             {[
@@ -110,24 +110,8 @@ export default function LeadershipFrameworksForEngineering() {
               ["aws-lps","Amazon Leadership Principles"],
               ["dora","DORA Metrics"],
               ["agile-lean","Agile & Lean"],
-              ["systems-thinking","Systems Thinking"],
               ["radical-candor","Radical Candor"],
-              ["servant-leadership","Servant Leadership"],
-              ["eisenhower","Eisenhower Matrix"],
-              ["raci-daci","RACI/DACI"],
-              ["cynefin","Cynefin (Context)"],
-              ["design-thinking","Design Thinking"],
-              ["jtbd","Jobs To Be Done"],
-              ["ooda","OODA Loop"],
-              ["wardley","Wardley Mapping"],
-              ["ics","Incident Command System (ICS)"],
-              ["sdt","Self-Determination Theory"],
-              ["tps-lean","Toyota Production System / Lean"],
-              ["mckinsey7s","McKinsey 7-S"],
-              ["leadership-pipeline","Leadership Pipeline"],
-              ["porter","Porter’s Five Forces"],
-              ["blue-ocean","Blue Ocean Strategy"],
-              ["how-to-use","How to Use This Guide"]
+              ["servant-leadership","Growth Leadership"],
             ].map(([id,label])=>(
               <a key={id} href={`#${id}`} className={activeId===id?"active":""}>{label}</a>
             ))}

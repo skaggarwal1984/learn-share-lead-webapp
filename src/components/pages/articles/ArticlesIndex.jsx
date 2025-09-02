@@ -13,6 +13,25 @@ export default function ArticlesIndex() {
 
       <div style={grid}>
 
+
+        {/* Agentic AI */}
+<article style={card}>
+  <h2 style={h2}>
+    <Link to="/articles/agentic-ai-systems-for-leaders" style={a}>
+      🤖 Agentic Style Of Engineering Leaders 
+    </Link>
+  </h2>
+  <p style={muted}>
+   The emerging agentic architecture feels familiar because it mirrors how leaders operate: sensing, remembering, deciding, and coaching in real and near‑real time.</p>
+  <div style={meta}>
+    ~14 min read · Updated 09/02/2025
+  </div>
+  <Link to="/articles/agentic-leadership-style" style={btn}>
+    Read →
+  </Link>
+</article>
+
+
    {/* Dictionary  */}
         <article style={card}>
           <h2 style={h2}>
@@ -24,7 +43,7 @@ export default function ArticlesIndex() {
             A practical, searchable reference across strategy, delivery, people, architecture, finance, risk, customers, and collaboration.
           </p>
           <div style={meta}>
-            ~12 min read · Updated {new Date().toLocaleDateString()}
+            ~12 min read · Updated 09/01/2025
           </div>
           <Link to="/articles/engineering-dictionary" style={btn}>
             Read →
@@ -42,7 +61,7 @@ export default function ArticlesIndex() {
             The ultimate guide to decision systems, mental models, and cultural principles used by top engineering leaders worldwide.
           </p>
           <div style={meta}>
-            ~15 min read · Updated {new Date().toLocaleDateString()}
+            ~15 min read · Updated 08/31/2025
           </div>
           <Link to="/articles/leadership-frameworks" style={btn}>
             Read →
@@ -60,7 +79,7 @@ export default function ArticlesIndex() {
             The always-on KPI guide (Delivery, Quality, scaling, deployment strategies, rituals)
           </p>
           <div style={meta}>
-            ~8 min read · Updated {new Date().toLocaleDateString()}
+            ~8 min read · Updated 08/30/2025
           </div>
           <Link to="/articles/key-terms-modern-engineering" style={btn}>
             Read →
@@ -78,7 +97,7 @@ export default function ArticlesIndex() {
             Architecture & read behavior tables, decision matrix, anti-patterns, capacity math, and an ops runbook you can use day-to-day.
           </p>
           <div style={meta}>
-            ~10 min read · Updated {new Date().toLocaleDateString()}
+            ~10 min read · Updated 08/29/2025
           </div>
           <Link to="/articles/databases-comparison" style={btn}>
             Read →

@@ -92,7 +92,7 @@ export default function KeyTermsModernEngineering() {
 
       <div className="kt-wrap">
         {/* Sticky ToC */}
-        <aside className="kt-sticky">
+        <aside>
           <nav className="kt-card kt-toc" aria-label="On this page">
             <strong style={{ display:"block", marginBottom:6 }}>On this page</strong>
             {[

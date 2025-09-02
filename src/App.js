@@ -10,6 +10,7 @@ import DatabasesComparison from "./components/pages/articles/DatabasesComparison
 import LLMTransformerPrimer from "./components/pages/articles/LLMTransformerPrimer";
 import EngineeringDictionary from "./components/pages/articles/EngineeringDictionary";
 import LeadershipFrameworksForEngineering from "./components/pages/articles/LeadershipFrameworksForEngineering";
+import AgenticAISystemsForLeaders from "./components/pages/articles/AgenticAISystemsForLeaders";
 
 export default function App() {
   return (
@@ -35,6 +36,8 @@ export default function App() {
         <Route path="/articles/engineering-dictionary" element={<EngineeringDictionary />} />
         <Route path="/articles/transformers-primer" element={<LLMTransformerPrimer />} />
         <Route path="/articles/leadership-frameworks" element={<LeadershipFrameworksForEngineering />} />
+        <Route path="/articles/agentic-leadership-style" element={<AgenticAISystemsForLeaders />} />
+      
       </Routes>
     </BrowserRouter>
   );
